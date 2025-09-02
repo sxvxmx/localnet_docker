@@ -1,0 +1,31 @@
+services:
+  node1:
+    build: .
+    image: cassandra-ssh:test
+    container_name: node1
+    networks:
+      vnet:
+        ipv4_address: 192.168.200.200
+    restart: unless-stopped
+
+  node2:
+    build: .
+    image: cassandra-ssh:test
+    container_name: node2
+    networks:
+      vnet:
+        ipv4_address: 192.168.200.201
+    restart: unless-stopped
+
+  node3:
+    build: .
+    image: cassandra-ssh:test
+    container_name: node3
+    networks:
+      vnet:
+        ipv4_address: 192.168.200.202
+    restart: unless-stopped
+
+networks:
+  vnet:
+    external: true
